@@ -1,0 +1,168 @@
+@import 'mixi.scss';
+
+header {
+   @include w(100%, 10);
+   background: $cb;
+   position: absolute;
+   z-index: 10;
+
+   .container {
+      @include fb(center, space-between);
+
+      svg {
+         margin-top: 1.7rem;
+      }
+   }
+
+   &.active {
+      .mobil_btn {
+         transform: rotate(-45deg);
+         height: 2rem;
+
+         span {
+            margin: 0;
+
+            &:nth-child(1) {
+               top: 3px;
+            }
+
+            &:nth-child(2) {
+               transform: rotate(90deg);
+               height: 3px;
+            }
+
+            &:nth-child(3) {
+               width: 0;
+            }
+         }
+      }
+
+      nav {
+         right: 0;
+      }
+   }
+
+   nav {
+      margin-top: 2rem;
+      @include fb (center, flex-start);
+
+      @media (max-width: 992px) {
+         margin-top: 0;
+         flex-direction: column;
+         align-items: start;
+         background: $cb;
+         padding: 6.1rem 2rem;
+         overflow: auto;
+         position: fixed;
+         top: 0;
+         right: -100%;
+         height: 100%;
+         z-index: 10;
+         transition: .4s;
+         width: 25rem;
+
+         a {
+            color: $cw;
+            padding: 1.4rem 0;
+         }
+      }
+   }
+
+   a {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      font-weight: 500;
+      color: $cw;
+      margin-right: 7rem;
+      position: relative;
+
+      &:nth-child(5) {
+         margin-left: 4rem;
+         margin-right: 0;
+
+         @media (max-width: 992px) {
+            margin-left: 0;
+         }
+      }
+
+      &.active,
+      &:hover {
+         color: rgba(255, 0, 0, 1);
+
+         &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 0rem;
+            width: 0rem;
+            border-bottom: 2rem solid white;
+            border-left: 1.8rem solid transparent;
+            border-right: 1.8rem solid transparent;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            top: 4rem;
+
+            @media (max-width: 992px) {
+               display: none;
+            }
+         }
+
+         @media (max-width: 992px) {
+            &:after {
+               content: '';
+               display: block;
+               position: absolute;
+               height: 0rem;
+               width: 0rem;
+               border-bottom: 1rem solid transparent;
+               border-top: 1rem solid transparent;
+               border-right: 2rem solid white;
+               top: 1.2rem;
+               left: 15rem;
+            }
+         }
+      }
+   }
+
+   span {
+
+      &.material-icons {
+         @media(max-width: 992px) {
+            margin-right: 7rem;
+         }
+
+         font-size: 3.5rem;
+         color:white;
+         display: block;
+         margin-top: 0.8rem;
+      }
+   }
+
+   .mobil_btn {
+      transition: .4s;
+      margin-left: auto;
+      cursor: pointer;
+      display: none;
+      position: fixed;
+      z-index: 11;
+      right: 15px;
+      width: 3rem;
+
+      @media (max-width:992px) {
+         display: block;
+
+      }
+
+      span {
+         transition: .4s;
+         display: block;
+         background: aqua;
+         margin: 5px auto;
+         height: 3px;
+         width: 100%;
+         position: relative;
+      }
+   }
+}

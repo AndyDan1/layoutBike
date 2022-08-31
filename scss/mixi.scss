@@ -1,0 +1,98 @@
+@mixin fb($y: center, $x: false, $w: false) {
+   @if $w {
+      flex-wrap: $w;
+   }
+
+   @if $x {
+      justify-content: $x;
+   }
+
+   display: flex;
+   align-items: $y;
+
+}
+
+@mixin w($w: auto, $h: none) {
+   @if $w  !=100% {
+      max-width: $w + rem;
+      width: 100%;
+   }
+
+   @if $w ==100% {
+      width: 100%;
+   }
+
+   @if $h  !=none {
+      height: $h + rem;
+   }
+
+   @if $w ==$h {
+      min-width: $w + rem;
+      min-height: $h + rem;
+   }
+}
+
+@mixin font($size: 1.8, $h: 2.8, $weight: normal, $fs: normal) {
+   font-size: $size + rem;
+   line-height: $h + rem;
+   font-weight: $weight;
+   font-style: $fs;
+}
+
+.container {
+   width: 100%;
+   max-width: 141rem;
+   padding: 0 15px;
+   margin: 0 auto;
+}
+
+$ff2: 'Open Sans', sans-serif;
+$ff3: 'Rokkit' sans-serif;
+$cw: #FFFFFF;
+$cb: #252525;
+
+%title {
+   font-size: 4.8rem;
+   line-height: 6.7rem;
+   font-weight: 700;
+   color: $cw;
+
+   @media (max-width: 400px) {
+      font-size: 3.4rem;
+      line-height: 5rem;
+      font-weight: 700;
+   }
+}
+
+%title {
+   font-family: "Open Sans", serif;
+   font-size: 3.6rem;
+   font-weight: 700;
+   line-height: 5.8rem;
+   color: $cw;
+}
+
+%text {
+   font-family: "Open Sans", serif;
+   font-size: 2rem;
+   font-weight: 700;
+   line-height: 4.1rem;
+   color: $cw;
+   //letter-spacing: 0.02rem;
+}
+
+%titleP {
+   font-weight: 700;
+   font-size: 7rem;
+   line-height: 14.6rem;
+   max-width: 123.4rem;
+   color: $cb;
+   text-align: center;
+   @media (max-width: 800px) {
+      line-height: 9rem;
+   }
+   @media (max-width: 500px) {
+   font-size: 6rem;
+   }
+
+}
